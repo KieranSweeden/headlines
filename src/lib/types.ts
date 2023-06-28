@@ -1,0 +1,1 @@
+export type LibResponse<T> = T | Error;
