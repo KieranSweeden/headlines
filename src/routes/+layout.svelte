@@ -3,6 +3,12 @@
   	import '../app.css'
 </script>
 
-<main>
+<main class="container">
+	<nav>
+		<ul>
+			<li><a href="/">headlines</a></li>
+		</ul>
+	</nav>
+
 	<slot />
 </main>
