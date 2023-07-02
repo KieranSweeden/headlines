@@ -1,32 +1,15 @@
-import type { articleFilterSchema } from './schemas';
+import type {
+    responseSchema,
+    articleSchema,
+    articleFilterSchema
+} from './schemas';
+
 import type z from 'zod';
 
-export type GuardianResponse = {
-    status: string,
-    userTier: string,
-    total: number,
-    startIndex: number,
-    pageSize: number,
-    currentPage: number,
-    pages: number,
-    orderBy: string,
-    results: GuardianArticle[]
-};
 
-export type GuardianArticle = {
-    id: string,
-    type: string,
-    sectionId: string,
-    sectionName: string,
-    webPublicationDate: string,
-    webTitle: string,
-    webUrl: string,
-    apiUrl: string,
-    isHosted: boolean,
-    pillarId: string,
-    pillarName: string
-};
 
+export type GuardianResponse = z.infer<typeof responseSchema>;
+export type GuardianArticle = z.infer<typeof articleSchema>;
 export type GuardianArticleFilter = z.infer<typeof articleFilterSchema>;
 
 

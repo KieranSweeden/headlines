@@ -2,8 +2,6 @@ import Guardian from 'guardian-js';
 import { GUARDIAN_OP_KEY } from '$env/static/private';
 import type { GuardianArticle, GuardianResponse, GuardianArticleFilter } from './types';
 import { articleFilterSchema } from './schemas';
-import type { LibResponse } from '$lib/types';
-import z from 'zod';
 
 const guardianClient = new Guardian(GUARDIAN_OP_KEY, true);
 
@@ -19,9 +17,10 @@ export default {
     // },
 
 	getArticles: async function (
-		query: string,
-		filter: GuardianArticleFilter
-	): Promise<LibResponse<GuardianArticle[]>> {
+		query?: string,
+		filter?: GuardianArticleFilter
+	): Promise<GuardianArticle[]> {
+        if (!query) query = '';
         
         if (!filter) {
             filter = {...REQUIRED_ARTICLE_FILTER_FIELD_VALUES};
