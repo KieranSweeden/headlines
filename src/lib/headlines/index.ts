@@ -1,14 +1,11 @@
-import z from 'zod';
-
 import articleLib from '$lib/articles';
 import blanksLib from '$lib/blanks';
 
 import type { GuardianArticle } from '$lib/articles/types';
-
 import type { Headline } from './types';
 
 export default {
-    get: async function() {
+    get: async function(): Promise<Headline[]> {
         const articles = await articleLib.getArticles();
 
         if (!articles?.length) {
@@ -24,8 +21,6 @@ export default {
     },
 
     generate: async function(article: GuardianArticle): Promise<Headline> {
-        const headline = {};
-
         const blanks = blanksLib.create(article.fields.headline);
 
         return {

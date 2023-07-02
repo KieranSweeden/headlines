@@ -37,6 +37,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"cohere-ai": "^6.2.2",
 		"guardian-js": "^5.0.0",
 		"zod": "^3.21.4"
 	}
