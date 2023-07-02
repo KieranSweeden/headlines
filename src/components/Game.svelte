@@ -1,8 +1,13 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    
 
 </script>
 
+<form>
+    <div class="grid">
+        <input type="text">
+    </div>
+</form>
 
 
 
